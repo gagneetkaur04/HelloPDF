@@ -2,11 +2,11 @@
 
 1. Create virtual environment
 
-    `conda create -n summarize-reports python==3.10`
+    `conda create -n pdf-chat python==3.10`
 
 2. Activate the environment
 
-    `conda activate summarize-reports`
+    `conda activate pdf-chat`
 
 3. Install the requirements
 
