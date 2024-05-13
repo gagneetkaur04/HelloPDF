@@ -17,17 +17,13 @@ load_dotenv()
 os.environ["GOOGLE_API_KEY"] = st.secrets["GOOGLE_API_KEY"]
 genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
 
-def get_pdf_text(pdf):
+def get_pdf_text(pdf_files):
     text = ""
-    pdf_reader = PdfReader(pdf)
-    for page in pdf_reader.pages:
-        try:
-            extracted_text = page.extract_text()
-            if extracted_text:
-                text += extracted_text
-        except Exception as e:
-            print(f"Error extracting text from page: {e}")
-            continue
+    for pdf in pdf_files:
+        pdf_reader = PdfReader(pdf)
+
+        for page in pdf_reader.pages:
+            text += page.extract_text()
 
     return text
 
